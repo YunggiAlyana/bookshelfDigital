@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bookshelf Apps Nabila Naurotul Ummah</title>
+  <link rel="icon" type="image/png" href="buku.png" sizes="1000*!000">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,
+  100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,500;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+  <!-- Header -->
+<header class="head_bar">
+  <h1>Bookshelf Apps Nanachan</h1>
+</header>
+
+
+<main>
+  <section class="input_section">
+    <h2>Masukkan Buku Baru</h2>
+    <form id="inputBook">
+      <div class="input">
+        <label for="inputBookTitle">Judul</label>
+        <input class="inputBookTitle" id="inputBookTitle" type="text" required> 
+      </div>
+      <div class="input">
+        <label for="inputBookAuthor">Penulis</label>
+        <input class="inputBookTitle" id="inputBookAuthor" type="text" required>
+      </div>
+      <div class="input">
+        <label for="inputBookYear">Tahun</label>
+        <input class="inputBookTitle" id="inputBookYear" type="number" required>
+      </div>
+      <div class="input_inline">
+        <label for="inputBookIsComplete">Selesai dibaca</label>
+        <input id="inputBookIsComplete" type="checkbox" onclick="changeText()"> 
+      </div>
+      <button id="bookSubmit" type="submit">Masukkan Buku ke rak <span id="textSubmit">Belum selesai dibaca</span></button>
+    </form>
+  </section>
+  
+  <section class="search_section">
+    <h2>Cari Buku (Opsional)</h2>
+    <form id="searchBook">
+      <label for="searchBookTitle">Judul</label>
+      <input id="searchBookTitle" type="text">
+      <button id="searchSubmit" type="submit"><div class="cari">Cari</div></button>
+    </form>
+  </section>
+  <section class="book_shelf">
+    <h2>Belum selesai dibaca</h2>
+    
+    <div id="incompleteBookshelfList" class="book_list">
+<!--      <article class="book_item">-->
+<!--        <h3>Book Title</h3>-->
+<!--        <p>Penulis: John Doe</p>-->
+<!--        <p>Tahun: 2002</p>-->
+<!--    -->
+<!--        <div class="action">-->
+<!--          <button class="green">Selesai dibaca</button>-->
+<!--          <button class="red">Hapus buku</button>-->
+<!--        </div>-->
+<!--      </article>-->
+    </div>
+  </section>
+  
+  <section class="book_shelf">
+    <h2>Selesai dibaca</h2>
+    
+    <div id="completeBookshelfList" class="book_list">
+     <!-- <article class="book_item">-->
+<!--        <h3>Book Title</h3>-->
+<!--        <p>Penulis: John Doe</p>-->
+<!--        <p>Tahun: 2002</p>-->
+<!--        -->
+<!--        <div class="action">-->
+<!--          <button class="green">Belum selesai di Baca</button>-->
+<!--          <button class="red">Hapus buku</button>-->
+<!--        </div>-->
+<!--      </article> -->
+    </div>
+  </section>
+</main>
+
+<footer>
+    <p>Created by <a href="">NabilaNaurotul</a> &copy; 2024.</p>
+</footer>
+
+<script src="main.js"></script>
+
+</body>
+</html>
