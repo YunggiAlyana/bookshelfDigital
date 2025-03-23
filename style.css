@@ -1,13 +1,16 @@
 :root{
-    --pinkTerlupakan: #ed93b4;
-    --pinkTua: #F2BED1;
-    --pinkAgakMuda: #FDCEDF;
-    --pinkMuda: #F8E8EE;
-    --pinkBgt: #F9F5F6;
-    --jawir: #000;
-    --putih: #fff;
+    /* Ini warna-warna yang bakal dipake di seluruh halaman */
+    --pinkTerlupakan: #ed93b4; /* Pink yang agak tua */
+    --pinkTua: #F2BED1; /* Pink soft */
+    --pinkAgakMuda: #FDCEDF; /* Pink lebih terang */
+    --pinkMuda: #F8E8EE; /* Pink pastel */
+    --pinkBgt: #F9F5F6; /* Pink hampir putih */
+    --jawir: #000; /* Hitam */
+    --putih: #fff; /* Putih */
+    --biru: #8ca4c9; /* Biru kalem */
 }
 
+/* Reset default styling biar gak ada margin & padding aneh */
 * {
     padding: 0;
     margin: 0;
@@ -17,16 +20,21 @@
     text-decoration: none;
 }
 
+/* Biar font di body, input, sama button konsisten */
 body, input, button {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 input, button {
     font-size: 16px;
 }
 
+textarea {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
 
-/* Header */
+/* ===== HEADER ===== */
 .head_bar {
     padding: 12px;
     display: flex;
@@ -35,89 +43,80 @@ input, button {
     background-color: var(--pinkTerlupakan);
     color: white;
     height: 60px;
-}
-.head_bar h1{
-    font-size: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
+.head_bar h1{
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+/* ===== MAIN CONTENT ===== */
 main {
     max-width: 800px;
     width: 80%;
     padding: 16px;
-    margin-top: 4rem;
-    margin-bottom: 0.8rem;
-    margin-left: 100px;
-    margin-right: 100px; 
+    margin: 4rem auto 0.8rem;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    background-color: var(--pinkBgt); 
 }
 
+/* ===== FORM INPUT BUKU ===== */
 .input_section {
     display: flex;
     flex-direction: column;
-    padding: 16px;
-    /* border: 1px solid var(--pinkTua); */
+    padding: 20px;
     border-radius: 10px;
-    background-color: rgb(242, 190, 209, 2) ;
+    background-color: rgba(242, 190, 209, 0.8); /* Pink transparan dikit */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
 }
 
 .input_section > h2 {
     text-align: center;
     color: var(--putih);
+    margin-bottom: 15px;
+    font-size: 22px;
 }
 
-.input_section > form > .input {
-    margin: 8px 0;
-    cursor: pointer var(--pinkTerlupakan);
-}
-
+/* Styling buat tombol submit */
 .input_section > form > button {
     background-color: var(--pinkTerlupakan);
     color: white;
-    border: 1px;
     border-radius: 5px;
     display: block;
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     cursor: pointer;
-}
-
-.input_section > form > button > span {
     font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
 }
 
-.input_section > form > .input > input {
+.input_section > form > button:hover {
+    background-color: #e684a3;
+    transform: translateY(-2px);
+}
+
+/* Biar input & textarea keliatan lebih rapi */
+.input_section > form > .input > input,
+.input_section > form > .input > textarea {
     display: block;
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border-radius: 5px;
     border: 1px solid var(--pinkTerlupakan);
+    transition: border 0.3s ease;
+    background-color: var(--putih);
 }
 
-
-.input_section > form > .input > label {
-    color: var(--pinkBgt);
-    font-weight: bold;
-    
+.input_section > form > .input > textarea {
+    min-height: 80px;
+    resize: vertical;
 }
 
-.input_section > form > .input_inline {
-    margin: 12px 0;
-    display: flex;
-    align-items: center;
-}
-
-.input_section > form > .input_inline > label {
-    color: var(--pinkBgt);
-    font-weight: bold;
-    margin-right: 10px;
-}
-.input_section #inputBook .input .inputBookTitle{
-    margin-top: 6px;
-}
-.input_section #inputBook .input .inputBookTitle:hover{
-    border: 2px solid var(--pinkTerlupakan);
-}
- 
-
+/* ===== FORM PENCARIAN BUKU ===== */
 .search_section {
     margin: 16px 0;
     display: flex;
@@ -126,14 +125,17 @@ main {
     padding: 16px;
     border-radius: 10px;
     background-color: var(--pinkTua);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .search_section > h2 {
     color: var(--pinkBgt);
     font-size: 20px;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
+/* Input pencarian & tombol */
 .search_section > form {
     padding: 16px;
     width: 100%;
@@ -142,140 +144,117 @@ main {
     grid-gap: 10px;
 }
 
-.search_section > form > label {
-    display: flex;
-    align-items: center;
-}
-
 .search_section > form > input {
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
+    border: 1px solid var(--pinkTerlupakan);
+    transition: all 0.3s ease;
 }
 
 .search_section > form > button {
     background-color: var(--pinkTerlupakan);
     color: white;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
     display: inline-block;
-    padding: 1rem 1rem;
+    padding: 1rem;
     font-size: 15px;
+    transition: all 0.3s ease;
 }
-.search_section #searchBook label{
-    color: var(--pinkBgt);
-    font-size: 20px;
+
+.search_section > form > button:hover {
+    background-color: #e684a3;
+    transform: translateY(-2px);
+}
+
+/* ===== BUTTON IMPORT/EXPORT ===== */
+.import_export_section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.import_export_section button {
+    padding: 10px 15px;
+    background-color: var(--biru);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
     font-weight: bold;
+    transition: all 0.3s ease;
 }
 
-.search_section #searchBook #searchBookTitle:hover{
-    border: 2px solid var(--pinkTerlupakan);
+.import_export_section button:hover {
+    background-color: #7b93b8;
+    transform: translateY(-2px);
 }
 
+/* Tombol ekspor beda warna */
+.import_export_section .export_btn {
+    background-color: var(--pinkTerlupakan);
+}
+
+.import_export_section .export_btn:hover {
+    background-color: #e684a3;
+}
+
+/* ===== BOOK SHELF (RAK BUKU) ===== */
 .book_shelf {
-    margin: 16px 0 0 0;
-    padding: 16px;
+    margin: 16px 0;
     border-radius: 10px;
-    background-color: var(--pinkTua);
+    padding: 16px;
+    background-color: var(--pinkAgakMuda);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .book_shelf > h2 {
     color: var(--pinkBgt);
-}
-
-.book_shelf > .book_list {
-    padding: 16px;
-}
-
-.book_shelf > .book_list > .book_item {
-    padding: 8px 16px 16px 16px;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 10px 0;
-}
-
-.book_shelf > .book_list > .book_item > h3, p {
-    margin: 8px 0;
-}
-
-.book_shelf > .book_list > .book_item > .action > button {
-    border: 0;
-    padding: 5px;
-    margin: 0 5px 0 0;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.book_shelf > .book_list > .book_item > .action > .green {
-    background-color: darkgreen;
-    color: white;
-}
-
-.book_shelf > .book_list > .book_item > .action > .red {
-    background-color: darkred;
-    color: white;
-}
-
-footer{
-    background-color: var(--pinkTerlupakan);
-    padding: 0.8rem 0 2rem;
     text-align: center;
-    justify-content: center;
-    margin-top: 14rem; 
-    /* width: 100%;
-    height: 50px;  */
-    /* position: absolute; */
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
-
-
-/* Setting media screen */
-
-/* laptop */
-@media (max-width: 1366px) {
-    html {
-      font-size: 80%;
-    }
-  }
-
-  /* tablet */
-  @media (max-width: 758px) {
-    html {
-      font-size: 70%;
-    }
-    main{
-     
-        justify-content: center;
-        align-items: center;
-        position: center;
-        gap: 40px;
-        max-width: 100%;
-        margin-left: 35px;
-        margin-right: 30px;
-    }
-     .search_section #searchBook{
-        width: 100%;
-        margin: 10px;
-        padding-right: 10px;
-        justify-content: center;
-     }
-     .search_section #searchBook #searchBookTitle{
-        width: 150px;
-
-
-     }
-     .search_section #searchBook #searchSubmit{
-        width: 100%;
-     }
-     .search_section #searchBook .cari{
-        font-size: 15px;
-     }
-
+/* Styling buku biar grid */
+.book_shelf > .book_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
 }
-/* hp */
-@media (max-width: 450px) {
-    html {
-      font-size: 60%;
+
+/* ===== FOOTER ===== */
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: var(--pinkTerlupakan);
+    color: white;
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+footer a {
+    color: var(--pinkBgt);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--putih);
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media screen and (max-width: 768px) {
+    main {
+        width: 90%;
     }
     
-  }
+    .search_section > form {
+        grid-template-columns: 1fr;
+    }
+    
+    .book_shelf > .book_list {
+        grid-template-columns: 1fr;
+    }
+}
