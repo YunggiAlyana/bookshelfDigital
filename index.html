@@ -8,95 +8,125 @@
   <title>Bookshelf Apps Nabila Naurotul Ummah</title>
   <link rel="icon" type="image/png" href="buku.png" sizes="1000*!000">
 
-  <!-- Font -->
+  <!-- font -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,
   100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,500;1,900&display=swap" rel="stylesheet">
+  
+  <!-- Tambahin file CSS biar tampilannya kece -->
   <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
+
   <!-- Header -->
-<header class="head_bar">
-  <h1>Bookshelf Apps Nanachan</h1>
-</header>
+  <header class="head_bar">
+    <h1>Bookshelf Apps Nanachan</h1>
+  </header>
 
+  <main>
 
-<main>
-  <section class="input_section">
-    <h2>Masukkan Buku Baru</h2>
-    <form id="inputBook">
-      <div class="input">
-        <label for="inputBookTitle">Judul</label>
-        <input class="inputBookTitle" id="inputBookTitle" type="text" required> 
-      </div>
-      <div class="input">
-        <label for="inputBookAuthor">Penulis</label>
-        <input class="inputBookTitle" id="inputBookAuthor" type="text" required>
-      </div>
-      <div class="input">
-        <label for="inputBookYear">Tahun</label>
-        <input class="inputBookTitle" id="inputBookYear" type="number" required>
-      </div>
-      <div class="input_inline">
-        <label for="inputBookIsComplete">Selesai dibaca</label>
-        <input id="inputBookIsComplete" type="checkbox" onclick="changeText()"> 
-      </div>
-      <button id="bookSubmit" type="submit">Masukkan Buku ke rak <span id="textSubmit">Belum selesai dibaca</span></button>
-    </form>
-  </section>
-  
-  <section class="search_section">
-    <h2>Cari Buku (Opsional)</h2>
-    <form id="searchBook">
-      <label for="searchBookTitle">Judul</label>
-      <input id="searchBookTitle" type="text">
-      <button id="searchSubmit" type="submit"><div class="cari">Cari</div></button>
-    </form>
-  </section>
-  <section class="book_shelf">
-    <h2>Belum selesai dibaca</h2>
+    <!-- Bagian buat nambahin buku baru -->
+    <section class="input_section">
+      <h2>Masukkan Buku Baru</h2>
+      <form id="inputBook">
+        
+        <!-- Input judul buku -->
+        <div class="input">
+          <label for="inputBookTitle">Judul</label>
+          <input class="inputBookTitle" id="inputBookTitle" type="text" required> 
+        </div>
+
+        <!-- Input nama penulis -->
+        <div class="input">
+          <label for="inputBookAuthor">Penulis</label>
+          <input class="inputBookTitle" id="inputBookAuthor" type="text" required>
+        </div>
+
+        <!-- Input tahun terbit -->
+        <div class="input">
+          <label for="inputBookYear">Tahun</label>
+          <input class="inputBookTitle" id="inputBookYear" type="number" required>
+        </div>
+
+        <!-- Input kategori, biar bisa dikelompokkan -->
+        <div class="input">
+          <label for="inputBookCategory">Kategori</label>
+          <input class="inputBookTitle" id="inputBookCategory" type="text">
+        </div>
+
+        <!-- Kasih rating ke bukunya, biar bisa tau bagus atau enggak -->
+        <div class="input">
+          <label for="inputBookRating">Rating (1-5)</label>
+          <input class="inputBookTitle" id="inputBookRating" type="number" min="1" max="5">
+        </div>
+
+        <!-- Update progress bacaan, udah sejauh mana nih? -->
+        <div class="input">
+          <label for="inputBookProgress">Progress Membaca (%)</label>
+          <input class="inputBookTitle" id="inputBookProgress" type="number" min="0" max="100" value="0">
+        </div>
+
+        <!-- Kolom buat nulis ulasan, siapa tau ada yang mau berbagi opini -->
+        <div class="input">
+          <label for="inputBookReview">Ulasan</label>
+          <textarea class="inputBookTitle" id="inputBookReview" rows="3"></textarea>
+        </div>
+
+        <!-- Checkbox buat tandain kalau buku ini udah selesai dibaca -->
+        <div class="input_inline">
+          <label for="inputBookIsComplete">Selesai dibaca</label>
+          <input id="inputBookIsComplete" type="checkbox" onclick="changeText()"> 
+        </div>
+
+        <!-- Tombol buat masukin buku ke daftar -->
+        <button id="bookSubmit" type="submit">Masukkan Buku ke rak <span id="textSubmit">Belum selesai dibaca</span></button>
+
+      </form>
+    </section>
     
-    <div id="incompleteBookshelfList" class="book_list">
-<!--      <article class="book_item">-->
-<!--        <h3>Book Title</h3>-->
-<!--        <p>Penulis: John Doe</p>-->
-<!--        <p>Tahun: 2002</p>-->
-<!--    -->
-<!--        <div class="action">-->
-<!--          <button class="green">Selesai dibaca</button>-->
-<!--          <button class="red">Hapus buku</button>-->
-<!--        </div>-->
-<!--      </article>-->
+    <!-- Bagian buat cari buku -->
+    <section class="search_section">
+      <h2>Cari Buku</h2>
+      <form id="searchBook">
+        <label for="searchBookTitle">Judul</label>
+        <input id="searchBookTitle" type="text">
+        <button id="searchSubmit" type="submit"><div class="cari">Cari</div></button>
+      </form>
+    </section>
+
+    <!-- Tombol buat ekspor & impor data -->
+    <div class="import_export_section">
+      <button onclick="exportData()" class="export_btn">Ekspor Data</button>
+      <button onclick="importData()" class="import_btn">Impor Data</button>
     </div>
-  </section>
-  
-  <section class="book_shelf">
-    <h2>Selesai dibaca</h2>
     
-    <div id="completeBookshelfList" class="book_list">
-     <!-- <article class="book_item">-->
-<!--        <h3>Book Title</h3>-->
-<!--        <p>Penulis: John Doe</p>-->
-<!--        <p>Tahun: 2002</p>-->
-<!--        -->
-<!--        <div class="action">-->
-<!--          <button class="green">Belum selesai di Baca</button>-->
-<!--          <button class="red">Hapus buku</button>-->
-<!--        </div>-->
-<!--      </article> -->
-    </div>
-  </section>
-</main>
+    <!-- Daftar buku yang masih belum selesai dibaca -->
+    <section class="book_shelf">
+      <h2>Belum selesai dibaca</h2>
+      <div id="incompleteBookshelfList" class="book_list">
+        <!-- Nanti bukunya bakal muncul di sini -->
+      </div>
+    </section>
+    
+    <!-- Daftar buku yang udah selesai dibaca -->
+    <section class="book_shelf">
+      <h2>Selesai dibaca</h2>
+      <div id="completeBookshelfList" class="book_list">
+        <!-- Buku yang udah tamat bakal muncul di sini -->
+      </div>
+    </section>
+  </main>
 
-<footer>
-    <p>Created by <a href="">NabilaNaurotul</a> &copy; 2024.</p>
-</footer>
+  <!-- Footer buat copyright dan nama pembuat -->
+  <footer>
+      <p>Created by <a href="">NabilaNaurotul</a> &copy; 2024.</p>
+  </footer>
 
-<script src="main.js"></script>
+  <!-- File JS biar semua fungsinya jalan -->
+  <script src="main.js"></script>
 
 </body>
 </html>
